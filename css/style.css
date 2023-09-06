@@ -132,17 +132,17 @@ button {
     display: inline-block;
     width: 60px;
     height: 34px;
-  }
+}
   
   /* Hide default HTML checkbox */
   .switch input {
     opacity: 0;
     width: 0;
     height: 0;
-  }
+}
   
   /* The slider */
-  .slider {
+.slider {
     position: absolute;
     cursor: pointer;
     top: 0;
@@ -152,9 +152,9 @@ button {
     background-color: var(--gray-20);
     -webkit-transition: .3s;
     transition: .3s ease-out;
-  }
+}
   
-  .slider:before {
+.slider:before {
     position: absolute;
     content: "";
     height: 26px;
@@ -164,26 +164,263 @@ button {
     background-color: white;
     -webkit-transition: .3s;
     transition: .3s ease-out;
-  }
+}
   
-  input:checked + .slider {
+input:checked + .slider {
     background-color: var(--primary);
-  }
+}
   
-  input:checked + .slider:before {
+input:checked + .slider:before {
     -webkit-transform: translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
-  }
+}
   
-  /* Rounded sliders */
-  .slider.round {
+/* Rounded sliders */
+.slider.round {
     border-radius: 34px;
-  }
+}
   
-  .slider.round:before {
+.slider.round:before {
     border-radius: 50%;
-  }
+}
+
+/* PLANETS SPECIFIC ------------------------------------ */
+
+.display-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+}
+
+.planet-container {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    /* border: 1px solid #d1d1d1; */
+    /* background-color: #f5f5f5; */
+    border-radius: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0px 5px 11px 2px #14141446;
+}
+
+.planet-display-container {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 300px;
+    background-image: url("../medias/images/space_texture.png");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 20px 20px 0 0;
+}
+
+.planet {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    transform: scale(1.25);
+}
+
+.gaseous-planet-surface-gradient {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(17deg, rgb(132, 143, 226) 0%, rgb(219, 215, 185) 50%, rgb(33, 94, 134) 100%);
+    border-radius: 50%;
+}
+
+.telluric-planet-surface-gradient {
+    position: relative;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(180deg, rgb(65, 52, 25) 0%, rgb(95, 62, 23) 50%, rgb(66, 25, 27) 100%);
+    border-radius: 50%;
+}
+
+.planet-texture {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 100%;
+    min-height: 100%;
+    width: 100%;
+    height: 100%;
+    background-image: url("../medias/images/telluric_texture.png");
+    background-size: 250%;
+    background-position-x: 0%;
+    background-position-y: 100%;
+    transform: rotatez(75deg);
+    opacity: .5;
+    border-radius: 50%;
+    filter: brightness(0) saturate(100%) invert(82%) sepia(98%) saturate(237%) hue-rotate(292deg) brightness(98%) contrast(106%);
+}
+
+.planet-shadow {
+    position: absolute;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset -20px -10px 15px 0px #141414;
+    border-radius: 50%;
+    z-index: 1;
+    transform: scale(1.01);
+    /* opacity: 0; */
+}
+
+.planet-atmosphere {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(1.4);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background : radial-gradient(circle,rgba(0,224,255,0) 0%, rgba(47,125,217, 0) 45%, rgba(43, 119, 182, 0.25) 50%,  rgba(36, 30, 30, 0) 55%, rgba(36, 30, 30, 0) 100%);
+    z-index: 0;
+}
+
+.planet-atmosphere::before {
+    content: "";
+    position: absolute;
+    top: 0%;
+    left: 0%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: scale(.70);
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background : radial-gradient(circle,rgba(0,224,255,0) 0%, rgba(36, 30, 30, 0) 45%, rgba(29, 109, 163, 0.25) 100%);
+    z-index: 3;
+}
+
+/*
+<!-- translate(x - = gauche, + = droite, y - = haut, + = bas) scale(x, y)-->
+<g transform="translate(-22.500000,85.000000) scale(0.09000,-0.09000)"
+*/
+.planet-rings-container {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -100%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300%;
+    height: 100%;
+    border-radius: 50%;
+    -webkit-mask-image: url("../medias/images/rings_mask.svg");
+    mask-image: url("../medias/images/rings_mask.svg");
+    z-index: 10;
+    transform: rotateZ(17deg)
+}
+
+.planet-rings {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 33.3%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: rotatex(87deg) scale(2.6);
+    width: 33%;
+    height: 100%;
+    border-radius: 50%;
+    background : radial-gradient(circle,rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 40%, rgba(121, 171, 204, 0.7) 67%, rgba(255, 255, 255, 0) 100%);
+    z-index: 10;
+    opacity: .4;
+}
+
+.planet-infos {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: fit-content;
+    font-size: small;
+    padding: 20px 10px;
+}
+
+.planet-name {
+    font-size: large;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.planet-infos-row {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    width: 100%;
+    height: fit-content;
+    font-size: small;
+    padding: 3px 0;
+}
+
+.planet-infos-row-label {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-start;
+    height: fit-content;
+    min-width: 50%;
+    width: 50%;
+    padding-right: 10px;
+    text-align: end;
+}
+
+.planet-infos-row-value {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    height: fit-content;
+    min-width: fit-content;
+    width: 50%;
+    padding-left: 10px;
+}
 /* ==========================
  MEDIA QUERIES
 ========================== */
