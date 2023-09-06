@@ -172,7 +172,7 @@ export const renderTelluricPlanetView = (telluricPlanetStyle) => {
     const planetTexture = document.createElement('div');
     planetTexture.setAttribute('id', 'planetTexture');
     planetTexture.setAttribute('class', 'planet-texture');
-    planetTexture.style.backgroundImage = 'url("../medias/images/telluric_texture.png")';
+    planetTexture.style.backgroundImage = 'url("./medias/images/telluric_texture.png")';
     planetTexture.style.backgroundSize = `${telluricPlanetStyle.planet_texture.background_size}%`;
     planetTexture.style.backgroundPositionX = `${telluricPlanetStyle.planet_texture.background_position_x}%`;
     planetTexture.style.backgroundPositionY = `${telluricPlanetStyle.planet_texture.background_position_y}%`;
